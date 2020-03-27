@@ -169,15 +169,15 @@ let app;
        //doesn't work
        //but should load the tasklist.html into home page
        let taskListButton = $("#taskListButton").click(function(){
-            LoadPageContent("mainContent", "./Views/content/tasklist.html");
+            LoadPageContent("mainContent", "./Views/content/tasklist.html", DisplayTaskList);
         });
         //test to see if load works
-        //LoadPageContent("mainContent", "./Views/content/tasklist.html");    
+       // LoadPageContent("mainContent", "./Views/content/tasklist.html", DisplayTaskList);    
     
       
        
     }
-
+//not completed yet
     function DisplayTasklistContent()
     {
         document.title = "WEBD6201 - ";
@@ -444,6 +444,7 @@ let app;
         // Task 1 a
         $("#newTaskButton").on("click", function(){
             let inputText = $("#taskTextInput").val();
+            
 
             let newElement = 
             `
