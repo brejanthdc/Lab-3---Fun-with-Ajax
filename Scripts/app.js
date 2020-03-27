@@ -1,3 +1,6 @@
+//Name: Brejanth Rajendran
+//StudentId: 100557484
+//Date: 2020/03/27
 class Contact
 {
     constructor(contactName = "", emailAddress = "", contactNumber = "", contactMessage = "")
@@ -129,6 +132,7 @@ let app;
                 {
                     case "home":
                         LoadPageContent("mainContent", "./Views/content/home.html");
+                        
                         break;
                     case "products":
                         LoadPageContent("mainContent", "./Views/content/products.html", DisplayProductsContent);
@@ -162,9 +166,13 @@ let app;
 
        LoadPageContent("mainFooter","./Views/partials/footer.html");
 
+       //doesn't work
+       //but should load the tasklist.html into home page
        let taskListButton = $("#taskListButton").click(function(){
-        location.href = "./tasklist.html";
-    });
+            LoadPageContent("mainContent", "./Views/content/tasklist.html");
+        });
+        //test to see if load works
+        //LoadPageContent("mainContent", "./Views/content/tasklist.html");    
     
       
        
