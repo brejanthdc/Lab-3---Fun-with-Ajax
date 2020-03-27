@@ -53,6 +53,7 @@ let app;
        let pageName = name.substring(1, name.length - 5);
 
        DisplayHomePageContent();
+       
     }
 
     /**
@@ -85,6 +86,7 @@ let app;
                  let content =  XHR.responseText;
  
                  container.innerHTML = content;
+                 
  
                 if(pageName)
                 {
@@ -143,6 +145,7 @@ let app;
                     case "login":
                         LoadPageContent("mainContent", "./Views/content/login.html", DisplayLoginContent);
                         break;
+                    
                 }
             }); 
         }
@@ -158,7 +161,52 @@ let app;
        LoadPageContent("mainContent", "./Views/content/home.html");
 
        LoadPageContent("mainFooter","./Views/partials/footer.html");
+
+       let taskListButton = $("#taskListButton").click(function(){
+        location.href = "./tasklist.html";
+    });
+    
+      
        
+    }
+
+    function DisplayTasklistContent()
+    {
+        document.title = "WEBD6201 - ";
+        let products = [];
+
+        // 1. CREATE A TRY / CATCH FOR EXCEPTION HANDLING
+        try {
+            // 2. INSTANTIATE A NEW XHR OBJECT
+            let XHR = new XMLHttpRequest();
+
+            // 3. ADD AN EVENT LISTENER FOR "READSTATECHANGE"
+            XHR.addEventListener("readystatechange", function(){
+                if((XHR.readyState === 4) && (XHR.status === 200))
+                {
+                    // 6. GET A RESPONSE FROM THE SERVER
+                    let data = JSON.parse(XHR.responseText);
+                    
+                   
+                    
+
+                    // 7. CREATE NEW ELEMENTS AND INJECT THEM AND THE DATA ONTO THE PAGE
+                    
+                 
+                    
+                }
+            });
+        
+            // 4. OPEN A CHANNEL - MAKE A REQUEST WITH THE APPROPRIATE URL
+             XHR.open("GET","./data/products.json",true);
+
+             // 5. SEND THE REQUEST TO THE SERVER
+             XHR.send();
+        } catch (error) {
+            console.log("Error: " + error);
+        }
+
+        
     }
 
     function DisplayProductsContent()
@@ -200,6 +248,7 @@ let app;
                         <td>${products[index].description}</td>
                         <td>${products[index].price}</td>
                         `
+                        
 
                         newRow.innerHTML = newItem;
 
